@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Meanwhile</title>
+<meta name="description" content="Meanwhile's privacy policy. The app makes exactly one network call, ever: the licence activation. Nothing else leaves your machine.">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #14161a; --muted: #5c6470;
+    --rule: #e3e6ea; --accent: #14161a; --accent-fg: #ffffff;
+    --card: #f6f7f9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1013; --fg: #e8eaed; --muted: #9aa2ad;
+      --rule: #23272e; --accent: #e8eaed; --accent-fg: #0e1013;
+      --card: #16191e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 40rem; margin: 0 auto; padding: 5rem 1.5rem 6rem; }
+  h1 { font-size: 1.05rem; font-weight: 600; letter-spacing: .02em; margin: 0 0 2.5rem; }
+  .lede { font-size: 1.65rem; line-height: 1.3; font-weight: 600; letter-spacing: -.02em; margin: 0 0 1.5rem; }
+  .updated { font-size: .9rem; color: var(--muted); margin: 0 0 2.5rem; }
+  h2 { font-size: 1.05rem; font-weight: 600; margin: 3.5rem 0 1rem; }
+  p { margin: 0 0 1.1rem; }
+  ul { margin: 0 0 1.1rem; padding-left: 1.2rem; }
+  li { margin-bottom: .5rem; }
+  code { font-size: .9em; background: var(--card); padding: .1em .35em; border-radius: 4px; }
+  .callout { background: var(--card); border-radius: 10px; padding: 1.5rem; margin: 0 0 1.1rem; }
+  .callout p:last-child { margin-bottom: 0; }
+  footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--rule);
+           font-size: .9rem; color: var(--muted); }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1><a href="/meanwhile-site/">Meanwhile</a></h1>
+
+  <p class="lede">Privacy Policy</p>
+  <p class="updated">Last updated 4 August 2026</p>
+
+  <div class="callout">
+    <p><strong>Meanwhile makes exactly one network call, ever: when you paste your licence key.</strong>
+       There is no analytics, no tracking, no telemetry, no update check and no crash reporting.
+       Your code and your agent transcripts never leave your machine.</p>
+  </div>
+
+  <h2>Who I am</h2>
+  <p>Meanwhile is made and sold by Ngoc Hien Dinh, an individual software developer based in
+     Vietnam. For any question about this policy or about your data, write to
+     <a href="mailto:hiendinhngoc@gmail.com">hiendinhngoc@gmail.com</a>.</p>
+
+  <h2>What the app reads on your Mac</h2>
+  <p>To show you what your agent is doing, Meanwhile reads two things locally:</p>
+  <ul>
+    <li>a small state file that Claude Code's hooks write to <code>~/.meanwhile/state.json</code>,
+        recording whether a run started or stopped;</li>
+    <li>the tail of your Claude Code transcript, to name the tool the agent is currently
+        running — for example "reading SPEC.md".</li>
+  </ul>
+  <p>Both are read on your machine and stay there. Meanwhile never uploads, copies or transmits
+     your transcripts, your prompts, your source code or your file names anywhere.</p>
+
+  <h2>The one network request</h2>
+  <p>When you paste a licence key and activate it, Meanwhile makes a single HTTPS request to
+     Lemon Squeezy's licence API at <code>api.lemonsqueezy.com/v1/licenses/activate</code>.
+     That request contains exactly two values:</p>
+  <ul>
+    <li>the licence key you pasted;</li>
+    <li>the fixed text <code>Meanwhile on this Mac</code>, used as the activation's name.</li>
+  </ul>
+  <p>It sends no device identifier, no serial number, no hardware fingerprint, no email address,
+     no username and no usage data. As with any HTTPS request, Lemon Squeezy's servers will see
+     the originating IP address; that is a property of the internet, not something Meanwhile
+     adds. Lemon Squeezy's handling of that request is governed by their own privacy policy.</p>
+  <p>The app makes this request once. If it succeeds, or if it fails, Meanwhile records that the
+     attempt happened and does not try again on that installation.</p>
+
+  <h2>What is stored on your Mac</h2>
+  <p>Meanwhile keeps three small files in <code>~/.meanwhile/</code>:</p>
+  <ul>
+    <li><code>state.json</code> — the current run state written by the Claude Code hook;</li>
+    <li><code>trial.plist</code> — the date your 14-day trial started;</li>
+    <li><code>license.json</code> — after activation, the activation identifier Lemon Squeezy
+        returned, so the app knows it is licensed.</li>
+  </ul>
+  <p>These never leave your machine. Deleting the <code>~/.meanwhile</code> folder deletes all of
+     them. There is no account, no server-side profile and nothing for me to delete on your
+     behalf, because I never receive any of it.</p>
+
+  <h2>This website</h2>
+  <p>This site is static and hosted on GitHub Pages. It sets no cookies, runs no analytics, loads
+     no fonts, scripts or images from third parties, and has nothing to consent to. GitHub, as the
+     host, may log ordinary web-server information such as IP addresses; that is covered by
+     GitHub's privacy statement.</p>
+
+  <h2>Payment</h2>
+  <p>Purchases are handled by Lemon Squeezy, which acts as the merchant of record. When you buy
+     Meanwhile you give your payment and billing details to Lemon Squeezy, not to me, and their
+     privacy policy governs that data. I receive only the limited order information they show a
+     seller — such as your name, email address and country — which I use to deliver your licence
+     key and to answer support or refund requests. I do not use it for marketing, and I do not
+     sell or share it.</p>
+
+  <h2>Your rights</h2>
+  <p>Because the app collects nothing, the only personal data connected to you sits in your Lemon
+     Squeezy order. You may ask me at any time what order information I hold, ask for a copy, or
+     ask me to delete it, by writing to
+     <a href="mailto:hiendinhngoc@gmail.com">hiendinhngoc@gmail.com</a>. I will respond within 30
+     days. Some order records must be retained by the merchant of record for tax and accounting
+     purposes even after a deletion request.</p>
+
+  <h2>Children</h2>
+  <p>Meanwhile is a developer tool and is not directed at children under 13, and I do not
+     knowingly collect information from them.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the updated version will be posted on this page with a new date at
+     the top. The commitment that the app makes exactly one network call is a product promise, not
+     a preference — if that ever changed, it would be stated here plainly and in the app itself.</p>
+
+  <footer>
+    <a href="/meanwhile-site/">Home</a> ·
+    <a href="/meanwhile-site/terms.html">Terms of Service</a> ·
+    Questions: <a href="mailto:hiendinhngoc@gmail.com">hiendinhngoc@gmail.com</a>
+  </footer>
+</main>
+</body>
+</html>
