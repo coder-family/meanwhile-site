@@ -27,6 +27,10 @@
   main { max-width: 40rem; margin: 0 auto; padding: 5rem 1.5rem 6rem; }
   h1 { font-size: 1.05rem; font-weight: 600; letter-spacing: .02em; margin: 0 0 2.5rem; }
   .lede { font-size: 1.65rem; line-height: 1.3; font-weight: 600; letter-spacing: -.02em; margin: 0 0 1.5rem; }
+  .demo { margin: 0 0 2.25rem; }
+  .demo-card { background: var(--card); border: 1px solid var(--rule); border-radius: 16px; padding: .8rem; }
+  .demo video { display: block; width: 100%; height: auto; border-radius: 12px; background: #000; }
+  .demo figcaption { font-size: .95rem; color: var(--muted); margin-top: .8rem; }
   .story { color: var(--muted); margin: 0 0 2rem; }
   .terms { font-size: .95rem; color: var(--muted); margin: 0 0 2rem; }
   .buy {
@@ -49,6 +53,16 @@
 <body>
 <main>
   <h1>Meanwhile</h1>
+
+  <figure class="demo">
+    <div class="demo-card">
+      <video controls preload="metadata" playsinline aria-label="Demo video showing Meanwhile taking over the screen during an agent run">
+        <source src="media/demo.mp4" type="video/mp4">
+        Your browser does not support HTML video. You can <a href="media/demo.mp4">download the demo video</a> instead.
+      </video>
+    </div>
+    <figcaption>A short demo of Meanwhile stepping in during a Claude Code run, then giving the machine back.</figcaption>
+  </figure>
 
   <p class="lede">It covers your screen while your coding agent works — and lets go the moment it's done.</p>
 
