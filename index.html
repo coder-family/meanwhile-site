@@ -21,32 +21,33 @@
   * { box-sizing: border-box; }
   body {
     margin: 0; background: var(--bg); color: var(--fg);
-    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
   main { max-width: 40rem; margin: 0 auto; padding: 5rem 1.5rem 6rem; }
-  h1 { font-size: 1.05rem; font-weight: 600; letter-spacing: .02em; margin: 0 0 2.5rem; }
-  .lede { font-size: 1.65rem; line-height: 1.3; font-weight: 600; letter-spacing: -.02em; margin: 0 0 1.5rem; }
+  h1 { font-size: 1rem; font-weight: 600; letter-spacing: .02em; margin: 0 0 2.5rem; }
+  .lede { font-size: 2rem; line-height: 1.2; font-weight: 600; letter-spacing: -.025em; margin: 0 0 1.5rem; }
   .demo { margin: 0 0 2.25rem; }
   .demo-card { background: var(--card); border: 1px solid var(--rule); border-radius: 16px; padding: .8rem; }
   .demo video { display: block; width: 100%; height: auto; border-radius: 12px; background: #000; }
-  .demo figcaption { font-size: .95rem; color: var(--muted); margin-top: .8rem; }
+  .demo figcaption { font-size: 1rem; color: var(--muted); margin-top: .8rem; }
   .story { color: var(--muted); margin: 0 0 2rem; }
-  .terms { font-size: .95rem; color: var(--muted); margin: 0 0 2rem; }
+  .terms { font-size: 1rem; color: var(--muted); margin: 0 0 2rem; }
   .buy {
     display: inline-block; background: var(--accent); color: var(--accent-fg);
     text-decoration: none; font-weight: 600; padding: .8rem 1.6rem; border-radius: 8px;
   }
   .buy:hover { opacity: .85; }
-  .dl { display: block; margin-top: 1rem; font-size: .95rem; color: var(--muted); }
-  .req { font-size: .9rem; color: var(--muted); margin-top: 2rem; }
-  h2 { font-size: 1.05rem; font-weight: 600; margin: 3.5rem 0 1rem; }
+  .buy:focus-visible, a:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+  .dl { display: block; margin-top: 1rem; font-size: 1rem; color: var(--muted); }
+  .req { font-size: 1rem; color: var(--muted); margin-top: 2rem; }
+  h2 { font-size: 1.25rem; line-height: 1.35; font-weight: 600; letter-spacing: -.01em; margin: 3.5rem 0 1rem; }
   p { margin: 0 0 1.1rem; }
   hr { border: 0; border-top: 1px solid var(--rule); margin: 3.5rem 0 0; }
   .privacy { background: var(--card); border-radius: 10px; padding: 1.5rem; margin-top: 1rem; }
   .privacy p:last-child { margin-bottom: 0; }
   footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--rule);
-           font-size: .9rem; color: var(--muted); }
+           font-size: 1rem; color: var(--muted); }
   a { color: inherit; }
 </style>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="78d4dbaf-e54d-42b5-a37e-fca7cd1f53ab"></script>
@@ -57,7 +58,7 @@
 
   <figure class="demo">
     <div class="demo-card">
-      <video controls preload="metadata" playsinline aria-label="Demo video showing Meanwhile taking over the screen during an agent run">
+      <video controls preload="metadata" playsinline poster="media/demo-poster.jpg" aria-label="Demo video showing Meanwhile taking over the screen during an agent run">
         <source src="media/demo.mp4" type="video/mp4">
         Your browser does not support HTML video. You can <a href="media/demo.mp4">download the demo video</a> instead.
       </video>
@@ -71,60 +72,71 @@
 
   <p class="terms"><strong>$19 one-time</strong> · 14-day trial · no subscription · nothing leaves your machine</p>
 
-  <a class="buy" data-umami-event="buy" href="https://meanwhile.lemonsqueezy.com/checkout/buy/8d8adda9-60f7-4138-9bef-fae556d44406">Buy Meanwhile</a>
-  <a class="dl" data-umami-event="download" href="https://github.com/coder-family/meanwhile-site/releases/latest">Download the 14-day trial →</a>
+  <a class="buy" data-umami-event="download" href="https://github.com/coder-family/meanwhile-site/releases/latest">Download the 14-day trial</a>
+  <a class="dl" data-umami-event="buy" href="https://meanwhile.lemonsqueezy.com/checkout/buy/8d8adda9-60f7-4138-9bef-fae556d44406">Buy now · $19 once →</a>
 
   <p class="req">Requires macOS 14 or later · Apple Silicon or Intel · Claude Code</p>
+
+  <h2>Notifications tell you when to come back</h2>
+  <p>Meanwhile solves the narrower problem: you did not want to leave for a 40-second run in the
+     first place. It puts a deliberate step between you and the tab that turns forty seconds into
+     twenty minutes.</p>
 
   <h2>How it works</h2>
   <p>Six seconds into a run, a full-screen overlay appears showing what the agent is doing and how
      long it has been going. Six seconds, because a takeover on every three-second reply gets
      uninstalled.</p>
   <p>To leave, you have to <em>hold</em> for two seconds. When the agent finishes, the overlay
-     vanishes and you're exactly where you were.</p>
-  <p>After five minutes Meanwhile gives the machine back — the overlay steps aside and the menu bar
+     vanishes and you're exactly where you were. You can always press <strong>Option-Command-Escape</strong>
+     for an immediate keyboard exit.</p>
+  <p>After five minutes Meanwhile gives the machine back. The overlay steps aside and the menu bar
      carries the run instead, so a long job doesn't hold a screen you're no longer waiting at. If the
      agent finishes while you're elsewhere, you get a notification.</p>
-  <p>The screen it shows is deliberately plain. No calendar, no news, no now-playing. The whole point
-     is that there is nothing on it worth staying for.</p>
+  <p>The screen it shows is deliberately plain, without calendars, news or now-playing widgets. The
+     whole point is that there is nothing on it worth staying for.</p>
 
   <h2>Why $19</h2>
   <p>Because you could build this yourself in a weekend, and at $19 it isn't worth your weekend.</p>
-  <p>What you'd be buying isn't the overlay — it's the numbers. Six seconds before it appears. Two
+  <p>What you'd be buying isn't the overlay; it's the numbers. Six seconds before it appears. Two
      seconds of holding to leave. Five minutes before it gives the screen back. Every one of those,
      set wrong, makes the thing intolerable inside ten minutes. They are set right here because they
      were set wrong first.</p>
-  <p>One payment. No subscription, no account, no server that can go away and take your licence with
-     it.</p>
+  <p>One payment, with no subscription, account or server that can go away and take your licence.</p>
   <p>Fourteen days first, everything working. If you're still running it on day 14, you already know
      whether it's worth $19. If you're not, you owe me nothing.</p>
 
+  <h2>See whether it earns its place</h2>
+  <p>Meanwhile keeps a local report of covered runs, protected duration, blocks surfaced and long
+     runs handed back. It reports only what it observed, never invented “time saved,” and the
+     history can be cleared at any time.</p>
+
   <h2>Privacy</h2>
   <div class="privacy">
-    <p><strong>Meanwhile makes exactly one network call, ever: when you paste your licence key.</strong></p>
-    <p>No analytics. No tracking. No telemetry. No update checks. Your transcripts never leave your
-       machine.</p>
+    <p><strong>Meanwhile makes no background network calls.</strong> It contacts Lemon Squeezy only
+       when you ask it to activate a licence. If activation fails, you can explicitly retry.</p>
+    <p>There is no app analytics, tracking, telemetry or update checking. Your transcripts never
+       leave your machine.</p>
     <p>Meanwhile reads Claude Code's local transcript to show what your agent is doing. That data is
        read on your machine and stays there.</p>
     <p>This page counts visits and button clicks with <a href="https://umami.is">Umami</a>, which
-       sets no cookies and collects nothing personal — just totals. Nothing to consent to. The app
+       sets no cookies and collects nothing personal, only totals. Nothing to consent to. The app
        itself stays exactly as described above.</p>
   </div>
 
   <h2>Installing</h2>
   <p>Download the <code>.dmg</code>, drag Meanwhile to Applications, and launch it. It lives in the
-     menu bar — there is no dock icon and no window.</p>
-  <p>On first launch Meanwhile shows you the exact thirteen lines it wants to add to
-     <code>~/.claude/settings.json</code> and installs them on one click. The change takes effect
-     mid-session; Claude Code does not need restarting. Give it a task that takes more than six
-     seconds.</p>
-  <p>To remove it, choose <strong>Remove Meanwhile</strong> from the menu bar <em>before</em> dragging
-     the app to the Trash — that takes the hooks back out and leaves your other hooks alone.</p>
+     menu bar, with no dock icon or ordinary app window.</p>
+  <p>On first launch Meanwhile asks to add three hooks to <code>~/.claude/settings.json</code> and
+     lets you review the exact thirteen-line diff before installing it. The change takes effect
+     mid-session; Claude Code does not need restarting. Meanwhile then tells you exactly how to
+     trigger the first Hold.</p>
+  <p>To remove it, choose <strong>Remove Claude Code hooks…</strong> from the menu bar <em>before</em> dragging
+     the app to the Trash. That takes the hooks back out and leaves your other hooks alone.</p>
 
   <footer>
     Meanwhile is made by one person. Questions: <a href="mailto:hiendinhngoc@gmail.com">hiendinhngoc@gmail.com</a><br>
-    <a href="/meanwhile-site/privacy.html">Privacy Policy</a> ·
-    <a href="/meanwhile-site/terms.html">Terms of Service</a> ·
+    <a href="privacy.html">Privacy Policy</a> ·
+    <a href="terms.html">Terms of Service</a> ·
     14-day refund, no questions asked
   </footer>
 </main>
